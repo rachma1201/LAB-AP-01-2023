@@ -38,7 +38,7 @@ def cetak_invoice(id_transaksi, nama_kasir, produk, total):
 
 # Fungsi untuk mencari invoice berdasarkan ID
 def mencari(id_transaksi):
-    nama_file = f"invoices/{id_transaksi}.txt"
+    nama_file = os.path.join('invoces', id_transaksi)
     if os.path.exists(nama_file):
         print(f"{'_' * 66}")
         with open(nama_file, 'r') as file_invoice:
@@ -51,6 +51,7 @@ def mencari(id_transaksi):
 def riwayat_transaksi(id_transaksi, total):
     riwayat_file = "trx_history.txt"
     waktu_transaksi = time.strftime("%d/%m/%Y %H:%M", time.localtime())
+    ID = id_transaksi.replace('.txt', '')
     if not os.path.exists(riwayat_file): # Cek apakah file sudah ada
                     # Membuat tabel riwayat transaksi jika file belum ada
             with open(riwayat_file, 'a') as history:
@@ -62,13 +63,13 @@ def riwayat_transaksi(id_transaksi, total):
 {'=' * 80}
 """) 
                 history.write(f"""
-| {waktu_transaksi:^20} | {id_transaksi:^20} | {total:>30} |
+| {waktu_transaksi:^20} | {ID:^20} | {total:>30} |
 {'=' * 80}""")
                 
     else: # Membuat tabel riwayat transaksi jika file sdh ada
             with open(riwayat_file, 'a') as history:
                 history.write(f"""
-| {waktu_transaksi:^20} | {id_transaksi:^20} | {total:>30} |
+| {waktu_transaksi:^20} | {ID:^20} | {total:>30} |
 {'=' * 80}""") # Format tabel riwayat transaksi jika file sudah ada
                 
 
@@ -105,7 +106,7 @@ while True:
             if tambah_produk == "t":
                 break
         cetak_invoice(id_transaksi, nama_kasir, produk, total)
-        riwayat_transaksi(Id_Transaksi(), total)
+        riwayat_transaksi(id_transaksi, total)
         print(f"{'=' * 50 }\n" + 'TRANSAKSI BERHASIL'.center(50) + f"\n{'=' * 50 }")
 
     elif option == "2":
