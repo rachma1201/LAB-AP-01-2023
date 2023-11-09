@@ -43,3 +43,11 @@ mahasiswa.get_jurusan()
 mahasiswa.get_ipk()
 mahasiswa.Tampilkan_info()
 print(f"{'Predikat':<8} :", mahasiswa.Hitung_predikat())
+# nama = input("Masukkan nama: ")
+# nim = input("Masukkan Nim: ")
+# jurusan = input("Masukkan Jurusan: ")
+# ipk = float(input("Masukkan IPK: "))
+
+# print("="*20)
+
+# mahasiswa = Mahasiswa(nama, nim , jurusan , ipk)
