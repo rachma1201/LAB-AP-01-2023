@@ -1,19 +1,14 @@
 class Mahasiswa:
     def __init__(self, nama, nim, jurusan, ipk):
-        self.__nama = nama
+        self.nama = nama
         self.nim = nim
         self.jurusan = jurusan 
         self.ipk  = ipk
-    def setNama(self, nama):
-        self.__nama = nama
-    
-    def getNama(self):
-        return self.__nama
     
     def tampilkan_info(self):
         print(f'''
-====Data {self.__nama}====
-Nama     = {self.__nama}
+====Data {self.nama}====
+Nama     = {self.nama}
 NIM      = {self.nim}
 Jurusan  = {self.jurusan}
 IPK      = {self.ipk}''')
@@ -39,8 +34,6 @@ nim = input("NIM = ")
 jurusan = input("Jurusan = ")
 ipk = float(input("IPK = "))
 mahasiswa = Mahasiswa(nama, nim, jurusan, ipk)
-mahasiswa.setNama(nama)
-print(mahasiswa.getNama())
 mahasiswa.tampilkan_info()
 mahasiswa.hitung_predikat()
 
